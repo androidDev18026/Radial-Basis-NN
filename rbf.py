@@ -6,10 +6,6 @@ import argparse
 find_fi = lambda x,y,sigma : np.float64(np.power(np.e, np.float64(-((.8326*np.abs(x-y))/sigma)**2)))
 
 
-def get_user_parameters():
-    return tuple(sys.argv[1:3])
-
-
 def find_weights(random_nums, iterations, sigma=1):
     A = np.linalg.inv(np.array([[find_fi(fi,fi_2,sigma) for fi_2 in random_nums] for fi in random_nums], dtype=np.float64))
     
